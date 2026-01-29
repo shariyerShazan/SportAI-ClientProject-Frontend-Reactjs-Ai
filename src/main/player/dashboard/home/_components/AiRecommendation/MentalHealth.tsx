@@ -1,6 +1,6 @@
-import React from 'react';
+// import React from 'react';
 import { Card } from "@/components/ui/card";
-import { Heart, Phone, Info, AlertTriangle, Clock } from 'lucide-react';
+import { Heart, Phone, Info, AlertTriangle } from 'lucide-react';
 import { FaCircle } from "react-icons/fa";
 
 const MentalHealth = () => {

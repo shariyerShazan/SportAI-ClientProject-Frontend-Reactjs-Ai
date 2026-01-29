@@ -8,6 +8,10 @@ import NutritionHydrationGuidance from "@/main/player/dashboard/home/_components
 import PriorityFocusAreas from "@/main/player/dashboard/home/_components/AiRecommendation/PriorityFocusAreas";
 import SuggestedWeeklyStructure from "@/main/player/dashboard/home/_components/AiRecommendation/SuggestedWeeklyStructure";
 import PlayerDHome from "@/main/player/dashboard/home/PlayerDHome";
+import PlayerHelpAndSupport from "@/main/player/helpAndSupport/PlayerHelpAndSupport";
+import PlayerNotifications from "@/main/player/notification/PlayerNotifications";
+import PlayerData from "@/main/player/playerData/PlayerData";
+import PlayerProfile from "@/main/player/profile/PlayerProfile";
 import { createBrowserRouter } from "react-router";
 
 export const Routes = createBrowserRouter([
@@ -21,24 +25,40 @@ export const Routes = createBrowserRouter([
                 element: <PlayerLayout />,
                 children : [
                     {
-                        index: true ,
+                        path: "overview",
                         element : <PlayerDHome />
                     },
                     {
-                        path: "suggested-weekly-structure" ,
+                        path: "overview/suggested-weekly-structure" ,
                         element: <SuggestedWeeklyStructure />
                     },
                     {
-                        path: "priority-focus-areas" ,
+                        path: "overview/priority-focus-areas" ,
                         element: <PriorityFocusAreas />
                     },
                     {
-                        path : "nutrition-hydration-guidance",
+                        path : "overview/nutrition-hydration-guidance",
                         element: <NutritionHydrationGuidance />
                     },
                     {
-                        path: "mental-health",
+                        path: "overview/mental-health",
                         element: <MentalHealth />
+                    },
+                    {
+                        path: "data",
+                        element : <PlayerData />
+                    },
+                    {
+                        path: "profile" ,
+                        element: <PlayerProfile />
+                    },
+                    {
+                        path: "notifications" ,
+                        element: <PlayerNotifications />
+                    }, 
+                    {
+                        path: "support" ,
+                        element: <PlayerHelpAndSupport />
                     }
                 ]
             },

@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { Card } from "@/components/ui/card";
 import { Utensils, Droplets, Info } from 'lucide-react';
 import { FaCircle } from "react-icons/fa"; // For the bullet points
