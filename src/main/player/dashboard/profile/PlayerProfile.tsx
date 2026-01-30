@@ -3,7 +3,7 @@ import { ShieldCheck } from 'lucide-react';
 import { ProfilePicture } from './_components/ProfilePicture';
 import { PersonalInfo } from './_components/PersonalInfo';
 import { SecuritySettings } from './_components/SecuritySettings';
-
+//
 
 const PlayerProfile = () => {
   return (
