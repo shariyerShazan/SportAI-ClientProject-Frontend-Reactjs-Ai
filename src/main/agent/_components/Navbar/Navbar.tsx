@@ -1,23 +1,22 @@
-// import React from 'react';
-import { useLocation } from 'react-router';
-import { Bell } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router';
+import { Bell, Search } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const AgentDNavbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
-  // Function to convert path to Title
+  // Updated to match your Sidebar paths
   const getPageTitle = (path: string) => {
     const segments = path.split('/');
     const lastSegment = segments[segments.length - 1];
 
     switch (lastSegment) {
-      case 'overview': return 'Overview';
-      case 'suggested-weekly-structure': return 'Weekly Structure';
-      case 'priority-focus-areas': return 'Focus Areas';
-      case 'nutrition-hydration-guidance': return 'Nutrition & Hydration';
-      case 'mental-health': return 'Mental Health';
-      case 'data': return 'Data';
+      case 'overview': return 'Dashboard Overview';
+      case 'player-data': return 'Player Management';
+      case 'profile': return 'Club Profile';
+      case 'support': return 'Help & Support';
+      case 'notifications': return 'Notifications';
       default: return 'Overview';
     }
   };
@@ -26,28 +25,49 @@ const AgentDNavbar = () => {
 
   return (
     <div className="flex justify-between items-center px-8 py-4 bg-[#0B0E14] border-b border-gray-800 sticky top-0 z-50">
+      
       {/* Dynamic Breadcrumb */}
-      <div className="text-gray-400 text-sm font-medium">
-        Player <span className="mx-2 text-gray-600">|</span> 
-        <span className="text-[#53DDF5] font-semibold">{currentTitle}</span>
+      <div className="flex flex-col">
+        <div className="text-[10px] text-gray-500 font-black uppercase tracking-[0.2em] mb-0.5">
+          Agent Console <span className="mx-1 text-gray-700">/</span> 
+          <span className="text-[#53DDF5]">{currentTitle}</span>
+        </div>
+        <h2 className="text-lg font-bold text-white tracking-tight">{currentTitle}</h2>
       </div>
       
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-6">
+        {/* Quick Search - Optional but looks pro */}
+        <div className="hidden md:flex items-center gap-2 bg-[#162129]/40 border border-gray-800 px-3 py-1.5 rounded-lg group focus-within:border-[#53DDF5]/50 transition-all">
+          <Search size={14} className="text-gray-500 group-focus-within:text-[#53DDF5]" />
+          <input 
+            type="text" 
+            placeholder="Search players..." 
+            className="bg-transparent text-xs text-white outline-none w-40 placeholder:text-gray-600"
+          />
+        </div>
+
         {/* Notification Bell */}
-        <div className="relative p-2 bg-[#162129] rounded-lg border border-gray-700 cursor-pointer hover:bg-[#1f2e38] transition-colors">
-          <Bell size={18} className="text-[#53DDF5]" />
-          <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border border-[#0B0E14]"></span>
+        <div 
+          onClick={() => navigate('/agent/dashboard/notifications')}
+          className="relative p-2 bg-[#162129] rounded-lg border border-gray-800 cursor-pointer hover:bg-[#1f2e38] transition-all group"
+        >
+          <Bell size={18} className="text-gray-400 group-hover:text-[#53DDF5]" />
+          {/* Notification Badge */}
+          <span className="absolute top-2 right-2.5 w-2 h-2 bg-[#53DDF5] rounded-full border-2 border-[#0B0E14] animate-pulse"></span>
         </div>
 
         {/* User Profile Pill */}
-        <div className="flex items-center gap-3 bg-[#162129] p-1 pr-4 rounded-full border border-gray-700 cursor-pointer hover:border-gray-500 transition-all">
-          <Avatar className="h-8 w-8 border border-[#53DDF5]">
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>MC</AvatarFallback>
+        <div 
+          onClick={() => navigate('/agent/dashboard/profile')}
+          className="flex items-center gap-3 bg-[#162129] p-1 pr-4 rounded-full border border-gray-800 cursor-pointer hover:border-[#53DDF5]/40 transition-all"
+        >
+          <Avatar className="h-8 w-8 border border-[#53DDF5]/50">
+            <AvatarImage src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100" />
+            <AvatarFallback className="bg-gray-800 text-[#53DDF5] text-xs">MR</AvatarFallback>
           </Avatar>
           <div className="text-left hidden sm:block">
-            <p className="text-[11px] font-bold text-white leading-tight">Michael Chen</p>
-            <p className="text-[10px] text-gray-400 uppercase tracking-tighter">Midfielder</p>
+            <p className="text-[11px] font-black text-white leading-tight">Marcus Reynolds</p>
+            <p className="text-[9px] text-[#53DDF5] font-bold uppercase tracking-tighter">Licensed Agent</p>
           </div>
         </div>
       </div>
