@@ -12,11 +12,25 @@ import NutritionHydrationGuidance from "@/main/player/dashboard/home/_components
 import PriorityFocusAreas from "@/main/player/dashboard/home/_components/AiRecommendation/PriorityFocusAreas";
 import SuggestedWeeklyStructure from "@/main/player/dashboard/home/_components/AiRecommendation/SuggestedWeeklyStructure";
 import PlayerDHome from "@/main/player/dashboard/home/PlayerDHome";
-import PlayerHelpAndSupport from "@/main/player/helpAndSupport/PlayerHelpAndSupport";
-import PlayerNotifications from "@/main/player/notification/PlayerNotifications";
-import PlayerData from "@/main/player/playerData/PlayerData";
-import PlayerProfile from "@/main/player/profile/PlayerProfile";
+import PlayerHelpAndSupport from "@/main/player/dashboard/helpAndSupport/PlayerHelpAndSupport";
+import PlayerNotifications from "@/main/player/dashboard/notification/PlayerNotifications";
+import PlayerData from "@/main/player/dashboard/playerData/PlayerData";
+import PlayerProfile from "@/main/player/dashboard/profile/PlayerProfile";
 import { createBrowserRouter } from "react-router";
+import AvailablePlayers from "@/main/club/dashboard/availablePlayers/AvailablePlayers";
+import { AvailablePlayerDetails } from "@/main/club/dashboard/availablePlayers/_components/AvailablePlayerDetails";
+import ClubUserProfile from "@/main/club/dashboard/profile/ClubUserProfile";
+import ClubHelpAndSupport from "@/main/club/dashboard/helpAndSupport/ClubHelpAndSupport";
+import ClubNotification from "@/main/club/dashboard/Notification/ClubNotification";
+import AgentHelpAndSupport from "@/main/club/dashboard/helpAndSupport/ClubHelpAndSupport";
+import AgentOverview from "@/main/agent/dashboard/overview/AgentOverview";
+import AgentNotification from "@/main/agent/dashboard/Notification/AgentNotification";
+import AgentPlayerData from "@/main/agent/dashboard/playerData/AgentPlayerData";
+import AddNewPlayer from "@/main/agent/dashboard/playerData/_components/AddNewPlayer";
+import AgentUserProfile from "@/main/agent/dashboard/profile/AgentUserProfile";
+import AgentOnboarding from "@/main/agent/onboarding/AgentOnboarding";
+// import ClubProfileChangePassword from "@/main/club/dashboard/profile/_components/ChangePassword";
+
 
 export const Routes = createBrowserRouter([
   {
@@ -85,13 +99,63 @@ export const Routes = createBrowserRouter([
           {
             path: "players/edit/:id",
             element: <ClubPlayerEdit />
+          },
+          {
+            path: "available-players" ,
+            element: <AvailablePlayers />
+          },
+          {
+            path: "available-players/:id" ,
+            element: <AvailablePlayerDetails />
+          },
+          {
+            path: "profile" , 
+            element: <ClubUserProfile />
+          }, 
+          {
+            path: "support" , 
+            element: <ClubHelpAndSupport />
+          },
+          {
+            path: "notifications" , 
+            element: <ClubNotification />
           }
         ],
       },
       {
         path: "agent/dashboard",
         element: <AgentLayout />,
+        children: [
+          {
+            path: "overview", 
+            element: <AgentOverview />
+          },
+          {
+            path: "support" , 
+            element: <AgentHelpAndSupport />
+          },
+          {
+            path: "notifications" ,
+            element: <AgentNotification />
+          },
+          {
+            path: "player-data" , 
+            element: <AgentPlayerData />
+          },
+          {
+            path: "add-player" ,
+            element: <AddNewPlayer />
+          },
+          {
+            path: "profile", 
+            element: <AgentUserProfile />
+          }
+        ]
       },
+      {
+        path: "agent/onboarding" , 
+        element: <AgentOnboarding />
+      }
     ],
   },
 ]);
