@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Upload, Save, Calendar } from 'lucide-react';
+import { X, Upload, Save } from 'lucide-react';
 
 const ClubPlayerEdit = () => {
   // Functional State to handle form data
