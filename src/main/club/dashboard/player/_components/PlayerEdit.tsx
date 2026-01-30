@@ -31,7 +31,7 @@ const ClubPlayerEdit = () => {
   const labelClass = "text-[11px] font-black text-gray-400 uppercase tracking-widest mb-2 block";
 
   return (
-    <div className="p-7 bg-[#0B0E14] min-h-screen flex justify-center items-start">
+    <div className=" bg-[#0B0E14] min-h-screen flex justify-center items-start">
       <form onSubmit={handleSubmit} className="w-full max-w-3xl bg-[#27272A40] border border-gray-800 rounded-2xl overflow-hidden shadow-2xl">
         
         {/* Modal Header */}

@@ -12,10 +12,10 @@ import NutritionHydrationGuidance from "@/main/player/dashboard/home/_components
 import PriorityFocusAreas from "@/main/player/dashboard/home/_components/AiRecommendation/PriorityFocusAreas";
 import SuggestedWeeklyStructure from "@/main/player/dashboard/home/_components/AiRecommendation/SuggestedWeeklyStructure";
 import PlayerDHome from "@/main/player/dashboard/home/PlayerDHome";
-import PlayerHelpAndSupport from "@/main/player/helpAndSupport/PlayerHelpAndSupport";
-import PlayerNotifications from "@/main/player/notification/PlayerNotifications";
-import PlayerData from "@/main/player/playerData/PlayerData";
-import PlayerProfile from "@/main/player/profile/PlayerProfile";
+import PlayerHelpAndSupport from "@/main/player/dashboard/helpAndSupport/PlayerHelpAndSupport";
+import PlayerNotifications from "@/main/player/dashboard/notification/PlayerNotifications";
+import PlayerData from "@/main/player/dashboard/playerData/PlayerData";
+import PlayerProfile from "@/main/player/dashboard/profile/PlayerProfile";
 import { createBrowserRouter } from "react-router";
 
 export const Routes = createBrowserRouter([
