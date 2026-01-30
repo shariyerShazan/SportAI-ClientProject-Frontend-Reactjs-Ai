@@ -1,13 +1,13 @@
-import React from 'react';
+// import React from 'react';
 import { useLocation } from 'react-router';
 import { Bell } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-const PlayerDNavbar = () => {
+const AgentDNavbar = () => {
   const location = useLocation();
 
   // Function to convert path to Title
-  const getPageTitle = (path) => {
+  const getPageTitle = (path: string) => {
     const segments = path.split('/');
     const lastSegment = segments[segments.length - 1];
 
@@ -55,4 +55,4 @@ const PlayerDNavbar = () => {
   );
 };
 
-export default PlayerDNavbar;
+export default AgentDNavbar;
