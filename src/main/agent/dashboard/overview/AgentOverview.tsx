@@ -10,7 +10,7 @@ const AgentOverview = () => {
   ];
 
   return (
-    <div className="p-8 bg-[#0B0E14] min-h-screen text-white">
+    <div className=" bg-[#0B0E14] min-h-screen text-white">
       {/* Header */}
       <div className="mb-10">
         <h1 className="text-3xl font-bold">

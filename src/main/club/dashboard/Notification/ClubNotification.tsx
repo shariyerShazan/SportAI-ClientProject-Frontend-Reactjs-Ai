@@ -62,7 +62,7 @@ const ClubNotification = () => {
   const unreadCount = notifications.filter(n => !n.isRead).length;
 
   return (
-    <div className="p-8 bg-[#0B0E14] min-h-screen text-white font-sans">
+    <div className=" bg-[#0B0E14] min-h-screen text-white font-sans">
       {/* Header Section */}
       <div className="flex justify-between items-center mb-10">
         <div>

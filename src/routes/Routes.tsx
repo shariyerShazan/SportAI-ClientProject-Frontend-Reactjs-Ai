@@ -25,6 +25,9 @@ import ClubNotification from "@/main/club/dashboard/Notification/ClubNotificatio
 import AgentHelpAndSupport from "@/main/club/dashboard/helpAndSupport/ClubHelpAndSupport";
 import AgentOverview from "@/main/agent/dashboard/overview/AgentOverview";
 import AgentNotification from "@/main/agent/dashboard/Notification/AgentNotification";
+import AgentPlayerData from "@/main/agent/dashboard/playerData/AgentPlayerData";
+import AddNewPlayer from "@/main/agent/dashboard/playerData/_components/AddNewPlayer";
+import AgentUserProfile from "@/main/agent/dashboard/profile/AgentUserProfile";
 // import ClubProfileChangePassword from "@/main/club/dashboard/profile/_components/ChangePassword";
 
 
@@ -133,6 +136,18 @@ export const Routes = createBrowserRouter([
           {
             path: "notifications" ,
             element: <AgentNotification />
+          },
+          {
+            path: "player-data" , 
+            element: <AgentPlayerData />
+          },
+          {
+            path: "add-player" ,
+            element: <AddNewPlayer />
+          },
+          {
+            path: "profile", 
+            element: <AgentUserProfile />
           }
         ]
       },

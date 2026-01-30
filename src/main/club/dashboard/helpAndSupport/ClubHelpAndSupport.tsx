@@ -16,7 +16,7 @@ import { TicketForm } from "./_components/TicketForm";
 
 const AgentHelpAndSupport = () => {
   return (
-    <div className="bg-[#0B0E14] min-h-screen p-4 md:p-8 space-y-10 font-sans">
+    <div className="bg-[#0B0E14] min-h-screen  space-y-10 font-sans">
       <div className="  space-y-10">
         
         {/* Top Stats */}
