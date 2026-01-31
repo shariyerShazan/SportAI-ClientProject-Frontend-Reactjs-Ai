@@ -1,31 +1,27 @@
+import { useState } from "react";
+import { useClubFormContext } from "./context/AgentFormContext";
+import WizardHeader from "./_components/WizardHeader";
+import StepIndicator from "./_components/StepIndicator";
+import AgentDetailsStep from "./_components/AgentDetailsStep";
+import LicensingStep from "./_components/LicensingStep";
+import SquadRosterStep from "./_components/SquadRosterStep";
+import ServicesRequiredStep from "./_components/ServicesRequiredStep";
+import WorkflowPreferencesStep from "./_components/WorkflowPreferencesStep";
+import ConsentStep from "./_components/ConsentStep";
+import type { StepItem } from "./_components/StepIndicator";
 
-
-import { useState } from 'react';
-import { useFormContext } from './context/FormContext';
-import ClubInfoStep from './_components/ClubInfoStep';
-import PrimaryContactStep from './_components/PrimaryContactStep';
-import TeamsCoveredStep from './_components/TeamsCoveredStep';
-import AnalysisRequirementsStep from './_components/AnalysisRequirementsStep';
-import RecruitmentStep from './_components/RecruitmentStep';
-import OutputPreferencesStep from './_components/OutputPreferencesStep';
-import ConsentStep from './_components/ConsentStep';
-import WizardHeader from './_components/WizardHeader';
-import StepIndicator from './_components/StepIndicator';
-
-
-const STEPS = [
-  { id: 1, label: 'Club Info' },
-  { id: 2, label: 'Contact' },
-  { id: 3, label: 'Teams' },
-  { id: 4, label: 'Services' },
-  { id: 5, label: 'Recruitment' },
-  { id: 6, label: 'Output' },
-  { id: 7, label: 'Consent' },
+const STEPS: StepItem[] = [
+  { id: 1, label: "Agent Details" },
+  { id: 2, label: "Licensing" },
+  { id: 3, label: "Client Roster" },
+  { id: 4, label: "Services Required" },
+  { id: 5, label: "Workflow Preferences" },
+  { id: 6, label: "Consent" },
 ];
 
 export default function AgentOnboarding() {
   const [currentStep, setCurrentStep] = useState(1);
-  const { formData } = useFormContext();
+  const { formData } = useClubFormContext();
 
   const handleNext = () => {
     if (currentStep < STEPS.length) {
@@ -40,28 +36,26 @@ export default function AgentOnboarding() {
   };
 
   const handleComplete = () => {
-    console.log('Form submitted with data:', formData);
-    alert('Setup Complete! Check console for form data.');
+    console.log("Club Onboarding - Form submitted with data:", formData);
+    alert("Setup Complete! Check browser console (F12) for form data.");
   };
 
   const renderStep = () => {
     switch (currentStep) {
       case 1:
-        return <ClubInfoStep onNext={handleNext} />;
+        return <AgentDetailsStep onNext={handleNext} />;
       case 2:
-        return <PrimaryContactStep onNext={handleNext} onBack={handleBack} />;
+        return <LicensingStep onNext={handleNext} onBack={handleBack} />;
       case 3:
-        return <TeamsCoveredStep onNext={handleNext} onBack={handleBack} />;
+        return <SquadRosterStep onNext={handleNext} onBack={handleBack} />;
       case 4:
-        return <AnalysisRequirementsStep onNext={handleNext} onBack={handleBack} />;
+        return <ServicesRequiredStep onNext={handleNext} onBack={handleBack} />;
       case 5:
-        return <RecruitmentStep onNext={handleNext} onBack={handleBack} />;
-      case 6:
-        return <OutputPreferencesStep onNext={handleNext} onBack={handleBack} />;
-      case 7:
         return (
-          <ConsentStep onComplete={handleComplete} onBack={handleBack} />
+          <WorkflowPreferencesStep onNext={handleNext} onBack={handleBack} />
         );
+      case 6:
+        return <ConsentStep onComplete={handleComplete} onBack={handleBack} />;
       default:
         return null;
     }
